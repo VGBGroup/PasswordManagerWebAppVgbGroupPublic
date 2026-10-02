@@ -1,0 +1,31 @@
+.mainContainer {
+  gap: calc(var(--spacing) * 5);
+  align-items: center;
+  display: flex;
+}
+
+.mainContainer .container {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.container .logo {
+  border-radius: var(--radius-2xl);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 28);
+  height: calc(var(--spacing) * 28);
+  display: flex;
+}
+
+.container .camera {
+  border-radius: calc(infinity * 1px);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
+  display: flex;
+  bottom: calc(var(--spacing) * -1);
+  right: calc(var(--spacing) * -1);
+  position: absolute;
+}

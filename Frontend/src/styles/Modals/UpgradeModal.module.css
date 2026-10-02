@@ -1,0 +1,121 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.modal {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted-foreground);
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: var(--accent);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.icon svg {
+  color: #f59e0b; /* amber-500 */
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: 8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.message {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.details {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.primaryButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.primaryButton:hover {
+  opacity: 0.9;
+}
+
+.secondaryButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: transparent;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.secondaryButton:hover {
+  background-color: var(--accent);
+  border-color: var(--border);
+}

@@ -1,0 +1,180 @@
+.container {
+  display: grid;
+  grid-template-areas: "info content";
+  grid-template-columns: 1fr 5fr;
+  overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
+  flex: auto;
+}
+
+.left-panel {
+  grid-area: info;
+  padding-left: 0.4rem;
+  padding-top: 1rem;
+
+  padding-right: 0.3srem;
+  background-color: var(--sidebar);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.form-panel {
+  grid-area: content;
+  height: 100%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  border-right-style: var(--tw-border-style);
+  border-right-width: 1px;
+  gap: 0.2rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+
+  /* ◄ THE FIX: Ensure these are set like this so it doesn't balloon in size */
+  height: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+/* w-full flex items-center gap-3 px-3 py-2 rounded-lg mb-0.5 transition-colors text-left */
+.sidebar .navButton {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border-radius: 0.8rem;
+  height: 3rem;
+  width: 100%;
+  gap: 1rem;
+  padding-left: 1rem;
+  cursor: pointer;
+  font-size: 100px;
+}
+
+.bottomContainer {
+  padding-block: calc(var(--spacing) * 4);
+  padding-inline: calc(var(--spacing) * 1);
+
+  /* Keeps it stuck to the absolute bottom of the sidebar flex space */
+  margin-top: auto;
+}
+
+.bottomContainer .account {
+  padding-inline: calc(var(--spacing) * 1);
+  gap: calc(var(--spacing) * 4);
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.account .logo {
+  border-radius: calc(infinity * 1px);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: calc(var(--spacing) * 12);
+  height: calc(var(--spacing) * 12);
+  display: flex;
+}
+
+.account .info {
+  flex: 1;
+  min-width: calc(var(--spacing) * 0);
+  overflow: hidden;
+}
+
+.account .button {
+  border-radius: calc(var(--radius) - 1px);
+  justify-content: center;
+  align-items: center;
+  height: calc(var(--spacing) * 12);
+  width: calc(var(--spacing) * 12);
+  display: flex;
+}
+
+.bottomContainer .lockButton {
+  margin-top: 0.5rem;
+  padding-block: calc(var(--spacing) * 4);
+  padding-inline: calc(var(--spacing) * 4);
+  border-radius: 0.8rem;
+  gap: calc(var(--spacing) * 4);
+  align-items: center;
+  width: 100%;
+  display: flex;
+  transition-property:
+    color, background-color, border-color, outline-color, text-decoration-color,
+    fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(
+    --tw-ease,
+    var(--default-transition-timing-function)
+  );
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+
+.TypeView {
+  scrollbar-width: none;
+  padding-inline: calc(var(--spacing) * 1);
+  overflow-y: auto;
+  /* flex: 1; */
+  display: grid;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.TypeView .TypeButton {
+  margin-top: 0.5rem;
+  text-align: left;
+  padding-block: calc(var(--spacing) * 2);
+  padding-inline: calc(var(--spacing) * 3);
+  border-radius: var(--radius);
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  width: 100%;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 0.5);
+  padding-right: 1.5rem;
+}
+
+.TypeView .sectionHeader {
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sectionHeader .button {
+  border-radius: calc(var(--radius) - 2px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 1.3rem;
+  width: 1.3rem;
+  cursor: pointer;
+
+  /* 🪄 Header Button Animations */
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.sectionHeader .button:hover {
+  background-color: var(--muted);
+}
+
+.sectionHeader .button:active {
+  transform: scale(0.92);
+}
+
+.alert {
+  border-radius: 3.40282e38px;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
+  display: flex;
+}

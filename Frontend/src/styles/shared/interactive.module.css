@@ -1,0 +1,21 @@
+/*
+  Shared interaction primitives.
+  .pressable covers the "muted background on hover, slight scale-down
+  on press" pattern that shows up on nearly every icon button in this
+  app. Compose it, then layer on size/radius/extra-hover locally.
+*/
+
+.pressable {
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.pressable:hover {
+  background-color: var(--muted);
+}
+
+.pressable:active {
+  transform: scale(0.92);
+}

@@ -1,0 +1,158 @@
+/* Home Styles */
+
+.container {
+  composes: splitContainer from '../shared/layout.module.css';
+  grid-template-columns: 1fr 5fr;
+}
+
+.left-panel {
+  composes: infoPane from '../shared/layout.module.css';
+  padding-left: 0.3rem;
+  padding-top: 1rem;
+  padding-right: 0.3rem;
+  background-color: var(--sidebar);
+  min-height: 0;
+}
+
+.form-panel {
+  composes: contentPane from '../shared/layout.module.css';
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  border-right-style: var(--tw-border-style);
+  border-right-width: 1px;
+  gap: 0.2rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+
+  /* Ensure these are set like this so it doesn't balloon in size */
+  height: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.sidebar .navButton {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border-radius: 0.8rem;
+  height: 3rem;
+  width: 100%;
+  gap: 1rem;
+  padding-left: 1rem;
+  cursor: pointer;
+  font-size: 100px;
+}
+
+.bottomContainer {
+  padding-block: calc(var(--spacing) * 4);
+  padding-inline: calc(var(--spacing) * 1);
+
+  /* Keeps it stuck to the absolute bottom of the sidebar flex space */
+  margin-top: auto;
+}
+
+.bottomContainer .account {
+  padding-inline: calc(var(--spacing) * 1);
+  gap: calc(var(--spacing) * 4);
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.account .logo {
+  border-radius: calc(infinity * 1px);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: calc(var(--spacing) * 12);
+  height: calc(var(--spacing) * 12);
+  display: flex;
+}
+
+.account .info {
+  flex: 1;
+  min-width: calc(var(--spacing) * 0);
+}
+
+.account .button {
+  border-radius: calc(var(--radius) - 1px);
+  justify-content: center;
+  align-items: center;
+  height: calc(var(--spacing) * 12);
+  width: calc(var(--spacing) * 12);
+  display: flex;
+}
+
+.bottomContainer .lockButton {
+  margin-top: 0.5rem;
+  padding-block: calc(var(--spacing) * 4);
+  padding-inline: calc(var(--spacing) * 4);
+  border-radius: 0.8rem;
+  gap: calc(var(--spacing) * 4);
+  align-items: center;
+  width: 100%;
+  display: flex;
+  transition-property:
+    color, background-color, border-color, outline-color, text-decoration-color,
+    fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(
+    --tw-ease,
+    var(--default-transition-timing-function)
+  );
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+
+.TypeView {
+  scrollbar-width: none;
+  padding-inline: calc(var(--spacing) * 1);
+  overflow-y: auto;
+  display: grid;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.TypeView .TypeButton {
+  margin-top: 0.5rem;
+  text-align: left;
+  padding-block: calc(var(--spacing) * 2);
+  padding-inline: calc(var(--spacing) * 3);
+  border-radius: var(--radius);
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  width: 100%;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 0.5);
+  padding-right: 1.5rem;
+}
+
+.TypeView .sectionHeader {
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sectionHeader .button {
+  composes: pressable from '../shared/interactive.module.css';
+  border-radius: calc(var(--radius) - 2px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 1.3rem;
+  width: 1.3rem;
+}
+
+.alert {
+  border-radius: 3.40282e38px;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
+  display: flex;
+  margin-left: auto;
+  margin-right: 0.3rem;
+}

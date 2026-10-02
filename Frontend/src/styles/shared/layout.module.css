@@ -1,0 +1,26 @@
+/*
+  Shared "info | content" split-pane shell.
+  grid-template-columns is the one thing that genuinely differs per
+  screen (2fr 5fr / 1fr 5fr / 1fr 3fr), so it stays local to each
+  component and is set after composing .splitContainer.
+*/
+
+.splitContainer {
+  display: grid;
+  grid-template-areas: "info content";
+  overflow: hidden;
+  height: 100vh;
+}
+
+.infoPane {
+  grid-area: info;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.contentPane {
+  grid-area: content;
+  height: 100%;
+}

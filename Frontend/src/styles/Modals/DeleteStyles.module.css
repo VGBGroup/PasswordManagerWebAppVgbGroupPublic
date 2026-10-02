@@ -1,0 +1,135 @@
+/* ─── ANIMATION KEYFRAMES ─── */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── MODAL OVERLAY & CARD ─── */
+
+.container {
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+
+  /* Smooth overlay fade */
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.item {
+  width: 100%;
+  max-width: 30rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 24px 64px;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+
+  /* Fluid modal slide-up animation */
+  animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: center;
+}
+
+.item h2 {
+  margin-top: 0;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.item p {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── FORM & INPUT ─── */
+
+.inputField {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius, 0.75rem);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background-color: var(--muted);
+  color: var(--foreground);
+  font-family: Inter, sans-serif;
+}
+
+.inputField:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+/* ─── BUTTONS ─── */
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.cancelButton, 
+.deleteButton {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: calc(var(--radius, 0.5rem) + 2px);
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+.cancelButton {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.cancelButton:hover {
+  background-color: var(--accent, #e5e7eb);
+}
+
+.deleteButton {
+  background-color: #dc2626; /* Danger Red */
+  color: #ffffff;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.deleteButton:disabled {
+  background-color: rgba(220, 38, 38, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: not-allowed;
+}

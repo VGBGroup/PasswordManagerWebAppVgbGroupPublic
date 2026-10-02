@@ -1,0 +1,26 @@
+/*
+  Shared modal shell.
+  Compose .overlay for the fixed, blurred backdrop and .panel for the
+  card surface. Each modal still owns its own size, radius, shadow,
+  and entrance animation — those vary enough per-modal that composing
+  them would fight more than it'd save.
+*/
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.panel {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+}

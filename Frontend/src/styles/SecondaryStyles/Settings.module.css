@@ -1,0 +1,254 @@
+/* Local keyframes for a smooth fade-in and slide-up entry effect */
+@keyframes buttonEnter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  overflow-y: auto;
+  flex: 1;
+  height: 100%;
+}
+
+.subContainer {
+  padding-block: calc(var(--spacing) * 10);
+  padding-inline: calc(var(--spacing) * 100);
+  max-width: var(--container-lg);
+  margin-inline: auto;
+}
+
+.subContainer .header {
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 8);
+}
+
+.header .iconDiv {
+  border-radius: calc(var(--radius) + 4px);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 15);
+  height: calc(var(--spacing) * 15);
+  display: flex;
+}
+
+.subContainer .card {
+  padding: calc(var(--spacing) * 5);
+  border-radius: var(--radius-2xl);
+  margin-bottom: calc(var(--spacing) * 5);
+}
+
+.card .container {
+  gap: calc(var(--spacing) * 4);
+  align-items: center;
+  display: flex;
+}
+
+.card .container .iconDiv {
+  border-radius: var(--radius-2xl);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: calc(var(--spacing) * 20);
+  height: calc(var(--spacing) * 20);
+  display: flex;
+}
+
+.card .infoContainer {
+  flex: 1;
+  min-width: calc(var(--spacing) * 0);
+}
+
+.flex {
+  gap: calc(var(--spacing) * 1.5);
+  align-items: center;
+  display: flex;
+  margin-top: calc(var(--spacing) * 2);
+}
+
+/* --- Standard Action Buttons --- */
+.button {
+  padding-block: calc(var(--spacing) * 1.5);
+  padding-inline: calc(var(--spacing) * 3);
+  border-radius: calc(var(--radius) * 1.5);
+  line-height: 1.5;
+
+  appearance: none;
+  border: none;
+  cursor: pointer;
+
+  /* Initial load animation */
+  animation: buttonEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Smooth interpolation transitions */
+  transition:
+    background-color 0.2s ease,
+    opacity 0.15s ease,
+    transform 0.1s ease;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.item {
+  gap: calc(var(--spacing) * 4);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+/* --- Toggle Switch --- */
+.toggleButton {
+  border-radius: 9999px;
+  flex-shrink: 0;
+  position: relative;
+  appearance: button;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.toggleButton:active .toggleSub {
+  /* Subtle stretching effect when clicked/held */
+  width: 20px;
+}
+
+.toggleSub {
+  border-radius: 9999px;
+  top: 4px;
+  left: 0;
+  position: absolute;
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.15s ease;
+}
+
+/* --- Auto Lock Selection Grid --- */
+.autoLockDiv {
+  gap: calc(var(--spacing) * 2);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: grid;
+}
+
+.autoLockDiv .button {
+  text-align: center;
+  padding-block: calc(var(--spacing) * 3);
+  border-radius: calc(var(--radius) + 0.2rem);
+
+  appearance: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: var(--muted);
+  color: var(--foreground);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.autoLockDiv .button:hover {
+  background-color: var(--accent);
+  border-color: var(--border);
+  opacity: 1; /* Reset the parent .button hover opacity override */
+}
+
+.autoLockDiv .button:active {
+  transform: scale(0.95);
+}
+
+/* --- Data Management Block Buttons --- */
+.dataManagementButton {
+  text-align: left;
+  padding-block: calc(var(--spacing) * 6);
+  padding-inline: calc(var(--spacing) * 4);
+  border-radius: calc(var(--radius) + 4px);
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  width: 100%;
+  display: flex;
+
+  appearance: none;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s ease;
+}
+
+.dataManagementButton:hover {
+  background-color: var(--muted);
+  border-color: var(--border-hover, var(--border));
+  transform: scale(1.005);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.dataManagementButton:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+/* --- Accessibility Guard --- */
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .autoLockDiv .button,
+  .dataManagementButton {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================
+   Mobile Responsiveness (768px and below)
+   ========================================= */
+@media screen and (max-width: 768px) {
+  .subContainer {
+    /* Scale down the massive side padding to standard mobile gutters */
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+  }
+
+  .subContainer .header {
+    margin-bottom: 1.5rem;
+  }
+
+  .card .container {
+    /* Stack icon and card content vertically */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .autoLockDiv {
+    /* Switch from 4 columns to a 2x2 grid so buttons stay readable */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flex {
+    /* Allow flex rows to wrap if text/buttons overflow */
+    flex-wrap: wrap;
+  }
+
+  .dataManagementButton {
+    /* Slightly reduce heavy padding on mobile */
+    padding-block: 1rem;
+    padding-inline: 1rem;
+  }
+}

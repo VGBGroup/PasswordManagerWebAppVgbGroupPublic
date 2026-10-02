@@ -1,0 +1,244 @@
+/*
+  Audit Styles
+  (keyframes now live in ../shared/keyframes.css — import that once
+  at your app root instead of redefining fadeInUp/scaleIn/etc. here)
+*/
+
+.container {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.container .secondaryContainer {
+  padding-block: calc(var(--spacing) * 15);
+  padding-inline: calc(var(--spacing) * 40);
+  max-width: var(--container-2xl);
+  margin-inline: auto;
+}
+
+.secondaryContainer .header {
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 8);
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.header .badge {
+  border-radius: calc(var(--radius) + 4px);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 15);
+  height: calc(var(--spacing) * 15);
+  display: flex;
+  animation:
+    scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    badgePulse 2.5s ease-in-out 0.6s infinite;
+}
+
+.secondaryContainer .card {
+  padding: calc(var(--spacing) * 6);
+  border-radius: 1rem;
+  gap: calc(var(--spacing) * 8);
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 6);
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.secondaryContainer .card:hover {
+  border-color: var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card .flex {
+  flex: 1;
+}
+
+.card .info {
+  gap: calc(var(--spacing) * 3);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid;
+}
+
+.info .infoCard {
+  text-align: center;
+  padding: calc(var(--spacing) * 3);
+  border-radius: calc(var(--radius) + 4px);
+  animation: countPop 0.45s ease-out both;
+  transition: transform 0.2s ease;
+}
+
+.info .infoCard:hover {
+  transform: translateY(-2px);
+}
+
+.info .infoCard:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.info .infoCard:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.info .infoCard:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+.relative {
+  position: relative;
+}
+
+.relative svg circle:nth-child(2) {
+  animation: ringDraw 1s ease-out 0.2s both;
+}
+
+.scoreText {
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  inset: calc(var(--spacing) * 0);
+  position: absolute;
+  animation: fadeInUp 0.5s ease-out 0.6s both;
+}
+
+.issueContainer {
+  padding: calc(var(--spacing) * 5);
+  border-radius: 1rem;
+  margin-bottom: calc(var(--spacing) * 4);
+  animation: fadeInUp 0.45s ease-out both;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.issueContainer:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+.issueContainer:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+
+.issueContainer:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+.issueContainer .header {
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(var(--spacing) * 4);
+  animation: none;
+}
+
+.header .type {
+  border-radius: var(--radius);
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
+  display: flex;
+  transition: transform 0.2s ease;
+}
+
+.issueContainer .header .text {
+  padding-block: calc(var(--spacing) * 0.5);
+  padding-inline: calc(var(--spacing) * 2);
+  border-radius: 3.40282e38px;
+}
+
+.issueRow {
+  padding-block: calc(var(--spacing) * 3);
+  padding-inline: calc(var(--spacing) * 3.5);
+  border-radius: calc(var(--radius) + 4px);
+  gap: calc(var(--spacing) * 3);
+  align-items: center;
+  display: flex;
+  margin-block-end: 0.5rem;
+  animation: fadeInUp 0.35s ease-out both;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.issueRow:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.issueRow:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.issueRow:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.issueRow:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.issueRow:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.issueRow:hover {
+  transform: translateX(3px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.issueRow .inner {
+  border-radius: var(--radius);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: calc(var(--spacing) * 12);
+  width: calc(var(--spacing) * 12);
+  display: flex;
+}
+
+.issueRow .button {
+  padding-block: calc(var(--spacing) * 1);
+  padding-inline: calc(var(--spacing) * 3);
+  border-radius: var(--radius);
+  appearance: button;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.issueRow .button:active {
+  transform: scale(0.95);
+}
+
+.protected {
+  gap: calc(var(--spacing) * 2);
+  align-items: center;
+  display: flex;
+  animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+.protected svg {
+  animation: checkPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .badge,
+  .card,
+  .infoCard,
+  .scoreText,
+  .issueContainer,
+  .issueRow,
+  .protected,
+  .protected svg,
+  .relative svg circle:nth-child(2) {
+    animation: none !important;
+  }
+}
